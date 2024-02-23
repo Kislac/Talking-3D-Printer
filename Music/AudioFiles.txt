@@ -1,0 +1,19 @@
+1-A Filament kapcsoló szenzor aktiválódott. Nyomtatás szüneteltetése!
+2-A Filament mozgásérzékelő szenzor aktiválódott. Nyomtatás szüneteltetése!
+3-Valami hiba történt. Beavatkozás szükséges!
+4-A nyomtatás elkezdődött!
+5-A nyomtatás véget ért!
+6-A nyomtatás szünetel! Cseréld ki a filamentet!
+7-Áramszünet észlelve. Nyomtatás szüneteltetése!
+
+10-3D Print Paused! The Filament switch sensor has been activated.
+11-3D Print Paused! The Filament motion sensor has been activated.
+12-Error! Manual inspection needed
+13-3D Print Started
+14-3D Print Finished!
+15-3D Print paused! Filament change needed!
+16-3D Print Paused! Power failure detected.
+
+
+https://ondoku3.com/hu/
+English-David

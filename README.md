@@ -11,6 +11,7 @@ Its USB powered, can be powered directly from RPI.
 6W, which is loud enough to hear it in a normal house even with some background noise.
 It has a manual voulume control, so can be change to volume phisically and virtually as well. 
 
+![image](https://github.com/Kislac/Talking-3D-Printer/assets/34631881/cc2c26cd-0c3b-46d0-8994-e2fc9a0a26f0)
 
 
 

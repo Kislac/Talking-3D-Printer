@@ -41,3 +41,10 @@ cd ~ && git clone https://github.com/dw-0/kiauh.git
 Step 3:
 Finally, start KIAUH by running the next command:
 ./kiauh/kiauh.sh
+
+
+
+Install VLC:
+https://pimylifeup.com/raspberry-pi-vlc/
+
+sudo apt install -y vlc

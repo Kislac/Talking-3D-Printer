@@ -51,4 +51,63 @@ sudo apt install -y vlc
 Drag & drop the audi files and from this repo.
 ![image](https://github.com/Kislac/Talking-3D-Printer/assets/34631881/9c49e31f-09a7-41f1-b4f8-1b64374b0033)
 
-Now you can call the shell command from klipper 
+## Play Audio files
+Now you can play the audio files from printer or call the shell command from klipper console: \
+Try to play audio file from putty:
+```
+cvlc --play-and-exit /home/pi/printer_data/config/Music/hu_PrintStart.mp3
+```
+Or play the audio file from klipper console:
+```
+RUN_SHELL_COMMAND CMD=Play_PrintStart
+```
+Once audio file has played some error messages will be there, which i don't know how to remove it, but neverteless it not cause any problem at all.
+![image](https://github.com/Kislac/Talking-3D-Printer/assets/34631881/5c19b5a7-ae26-4427-83b6-1c001651d96e)
+
+
+
+## Volue control
+You can get volume system voulme level with following command
+```
+amixer -M sget PCM
+```
+You can control the system volume level with following command. (% represent the volume level from 0-100%)
+```
+amixer -q -M sset PCM 30%
+```
+Or call the shell command from Klipper console as well:
+```
+RUN_SHELL_COMMAND CMD=Get_Volume
+RUN_SHELL_COMMAND CMD=Set_Volume_80
+```
+
+### Shell command structure
+More information in [Shell-Gcode-Command docu](https://github.com/dw-0/kiauh/blob/095823bf288029a2d8e147c275b0c3b8549edd57/docs/gcode_shell_command.md#L1)
+- command: Command to be executed like in SSH
+- timeout: Time in seconds after terminate the command. If the audio file is longer than this value, than the audio fule will be stopped.
+- verbose: True--> Show the terminal messages within the klipper console. False --> Do not show the terminal messages within the klipper console
+
+### Audio files
+7 audio files has creted in english and hungarian language. \
+I have used the https://ondoku3.com site for text to speach \
+English Nanrator: English-David \
+Hungarian Nanrator: Tamas
+
+## Use cases:
+- Error_FilamentMotion --> When filament motion sensor activated, beacuse of clogging. I have using the [Biqu SFS](https://biqu.equipment/products/btt-sfs-v1-0-smart-filament-sensor-detection-stuck-blocking-filament-module)
+- Error_FilamentSwitch --> When filament switch sensor activated, beacuse out of filament
+- Error_General --> Some general error message, which i am not using anywhere currently
+- Error_PowerFailure --> Planned to be used with [Biqu UPS 24V](https://biqu.equipment/products/btt-ups-24v-v1-0-resume-printing-while-power-off-module) to resume the printing. Not used yet.
+- FilamentChange --> For M600 g code command to pause the printing for filament change
+- PrintEnd --> For Print end notification
+- PrintStart --> For Print strat notification
+
+## Change language.
+Simply comment out the hungraian line and comment back the english line within shell_command.cfg
+```
+[gcode_shell_command Play_Error_FilamentMotion]
+#command: cvlc --play-and-exit /home/pi/printer_data/config/Music/en_Error_FilamentMotion.mp3
+command: cvlc --play-and-exit /home/pi/printer_data/config/Music/hu_Error_FilamentMotion.mp3
+timeout: 10
+verbose: False
+```
